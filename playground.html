@@ -1,9 +1,133 @@
+<!Doctype html>
 <html>
-    <head>
+<head>
+    <link rel="stylesheet" href="./bootstrap.css"/>
+    <link rel="stylesheet" href="./bootstrap-theme.css"/>
+	<Title>Luke's Playground</Title>
+</head>
+<body>
+ <nav class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebLab Function Playground</a>
+      </div>
+          
+      </nav>
+	<ol>
+		<li> <h3>Function that reverses the order of a string</h3>
+		
+    <div class="container">
+      <div class="row">
+        <div class="col-offset-1 col-lg-9">
+          
+          <h1>Reverse String</h1>
+          
+          <form>
+            <div class="form-group">
+              <label>Input String</label>
+              <input type="text" class="form-control" id="reverse-input"
+              	placeholder="Enter the text to be reversed">
+            </div>
+            <div class="form-group">
+              <label>Results</label>
+              <input type="text" class="form-control" id="reverse-output"
+                     disabled>
+            </div>
+            <button class="execute-reverse-string btn btn-default">Reverse</button>
+          </form>
         
-    </head>
-    <body>
-        <h1> HTML FILE</h1>
-        <script src="./playground.js"></script>
-    </body>
+
+
+		</li>
+		<li> <h3>Function that takes an array of text fragments & a length</h3>
+			<h3>then returns a list of fragments that are longer than said length only</h3>
+			<!--whitespace before and after dont count-->
+		<form class="form-inline" role="form">
+  			<div class="form-group">
+              <input type="text" class="form-control" id="new-filter-string" placeholder="Add String">
+            </div>
+  			<div class="form-group">
+              <input type="number" class="form-control" id="filter-length" placeholder="Length">
+            </div>
+            <button class="add-filter-string btn btn-default">Add</button>
+          </form>
+          <ul class="filter-string-list">
+          </ul>
+          <button class="execute-filter-list btn btn-default">filter</button>
+          <div class="filter-results panel panel-default"></div>
+			
+			
+			
+		
+		</li>
+		<li> <h3> function that returns 'Good morning' if it is the morning, </h3>
+			<h3>'Good afternoon' if it is the afternoon, and 'Good evening' if it is the evening.</h3>
+			<script>
+			var d = new Date();
+			var hours = d.getHours();
+			var minutes = d.getMinutes();
+			//change values to strings
+			//concat strings to merged string
+			//change string to a value
+			var greetings = function(hours, minutes) {
+				hours = hours.toString();
+				minutes = minutes.toString();
+				var time = parseInt(hours.concat(minutes));
+				if (time>=0 && time<1200)
+					var greeting = 'Good Morning.';
+				if (time>=1200 && time <1800)
+					var greeting = 'Good afternoon.';
+				if (time>=1800 && time <2400)
+					var greeting = 'Good Evening.';
+				return greeting;
+			}
+			document.write(greetings(hours, minutes));
+			</script>
+		</li>
+		<li><h3>Function that given a dollar amount returns a object of the </h3>
+			<h3>number of bills and coins needed to return change.</h3>
+			<script src="./currency.js"></script>
+			<script>
+            //MUST INPUT iIN FORMAT XXX.cc  zero cents must be explicitly stated
+			var amount = "356.21";
+            document.writeln("amount is: $" + amount + "<br>");
+			document.writeln(JSON.stringify(currency(amount))+"<br>");
+			</script>
+		</li>
+        <li><h3>Create a function that splits the values into the title, year, and</h3><h3> number of votes and returns a list of movie objects sorted by year.</h3>
+        <script src="./sortmovies.js"></script>
+        <script>
+            var items = [
+                'The Shawshank Redemption,1994,1043071',
+                'The Godfather,1972,732416',
+                'The Godfather: Part II,1974,474640',
+                'Pulp Fiction,1994,806431',
+                'The Dark Knight,2008,1017508',
+                '12 Angry Men,1957,255846',
+                'Schindler\'s List,1993,528900',
+                'The Lord of the Rings: The Return of the King,2003,738931',
+                'Fight Club,1999,791186',
+                'Star Wars: Episode V - The Empire Strikes Back,1980,503348'];
+            
+
+          
+            document.writeln(JSON.stringify(movieSort(items)));
+        
+        </script>
+        
+          
+      
+        </li>
+    </div>
+    </div>
+    </div>
+        
+            
+    <script src="http://code.jquery.com/jquery-2.0.3.js"></script>
+    <script src="./bootstrap.js"></script>
+    <script src="./reversal.js"></script>
+    <script src="./correctlength.js"></script>
+    
+</body>
+
+
 </html>
